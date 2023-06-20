@@ -1,6 +1,13 @@
 $(function () {
     getUserInfo()
 
+    $('#btnLogout').on('click',function(){
+        layer.confirm('确定吗?', {icon: 3, title:'提示'}, function(index){
+            localStorage.removeItem('token')
+            location.href = './login.html'
+            layer.close(index);
+          });
+    })
 })
 
 var res = {
@@ -48,3 +55,4 @@ function renderAvatar(user){
         .show()
     }
 }
+
